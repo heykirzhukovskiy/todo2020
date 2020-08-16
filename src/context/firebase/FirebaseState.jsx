@@ -52,9 +52,8 @@ export const FirebaseState = ({children}) => {
     };
 
     const removeNote = async id => {
-        await axios.delete(`${url}/notes/${id}.json`);
-
         try {
+            await axios.delete(`${url}/notes/${id}.json`);
             dispatch({type: REMOVE_NOTE, payload: id});
         } catch(e) {
             throw new Error(e.message);
